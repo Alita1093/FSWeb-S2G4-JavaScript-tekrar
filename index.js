@@ -29,13 +29,14 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(r){
+	return 2*pi*r
+	
 }
 
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+//console.log(CemberinCevresi(5));
 
 
 
@@ -47,13 +48,13 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinAlani(r,pi){
+	return pi*Math.pow(r,2);
 }
 
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
-
+//console.log(CemberinAlani(10,pi));
 
 
 /* 	GÖREV 3:
@@ -73,42 +74,53 @@ function CemberinAlani(/* kodlar buraya */){
 
 
 
-	var ucetambolunenler, enkucuk, enbuyuk, ucebolunenlerintoplami, besyuzdenkucuksayilar, siralisayilar, tekraredensayilar;
+	let ucetambolunenler=[]; let enkucuk=99999; let enbuyuk=0; let ucebolunenlerintoplami=0; let besyuzdenkucuksayilar=[]; let siralisayilar=[]; let tekraredensayilar=[];
 	
 	//3a çözümü
 
-	/* kodlar buraya */
-	
+	for(let i=0;i<=sayilar.length;i++){
+		if(sayilar[i]>enbuyuk){
+			enbuyuk=sayilar[i]
+		}
+		if(sayilar[i]<enkucuk){
+			enkucuk=sayilar[i]
+		}
+
+	}
+	// console.log(enbuyuk);
+	// console.log(enkucuk);
 	
 	
 	// 3b çözümü:
-
-	/* kodlar buraya */
-		
+	sayilar.forEach((sayi)=>{if(sayi%3===0){
+		ucetambolunenler.push(sayi);
+	}})
+	//console.log(ucetambolunenler);
 		
 		
 	//3c çözümü:
-	
-	/* kodlar buraya */
-
-	
+	ucebolunenlerintoplami=ucetambolunenler.reduce((a,b)=>a+b,0);
+	//console.log(ucebolunenlerintoplami);
 	
 	//3d çözümü
 	
-	/* kodlar buraya */
-
-
+	besyuzdenkucuksayilar=sayilar.filter((sayi)=>sayi<500)
+	// console.log(besyuzdenkucuksayilar);
 
 	//3e çözümü
+	siralisayilar=besyuzdenkucuksayilar.sort((a,b)=>{return a-b;})
 
-	/* kodlar buraya */
-	
 	
 	//3f çözümü
+	let elements={};
+	sayilar.forEach(val=>elements[val]=(elements[val]||0)+1);
 	
-	/* kodlar buraya */
-
-
+	for (let prop in elements){
+        if (elements[prop] >= 2){
+            tekraredensayilar.push(prop + " sayısı " + elements[prop] + " kere tekrar edilmiştir")
+        }
+    }
+console.log(tekraredensayilar);
 
 
 	
